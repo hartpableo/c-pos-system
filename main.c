@@ -137,7 +137,7 @@ int main()
     // Display order info
     sleep(1);
     printf("\n\n======================\n\n");
-    printf("TOTAL: %f\n", totalPrice);
+    printf("TOTAL: P%f\n", totalPrice);
     if (orderType == 1)
     {
         printf("Order Type: DINE IN");
@@ -147,6 +147,6 @@ int main()
         printf("Order Type: TAKE OUT");
     }
     printf("\n\n======================\n\n");
-    
+
     return 0;
 }
