@@ -11,6 +11,7 @@ int main()
     printf("\n========= MCDOLLIBEEKING MENU =========\n\n");
 
     // Dine in or take out?
+    sleep(1);
     printf("Dine In (1) or Take Out (2)? ");
     do
     {
@@ -111,7 +112,7 @@ int main()
         // Add to cart
         sleep(1.5);
         printf("\nYour order has been added to cart.\n");
-        sleep(.75);
+        sleep(1);
         printf("\nCurrent Total: P%f\n", totalPrice);
         sleep(1);
         printf("\nWould you like to Continue ordering (1) or Proceed to checkout (2)? ");
