@@ -4,12 +4,13 @@
 
 int main()
 {
-    int order, orderType, orderStatus, orderValid = 0;
+    int order, orderType, orderStatus, quantity, orderValid = 0;
     float totalPrice, itemPrice;
 
     system("clear");
     printf("\n========= MCDOLLIBEEKING MENU =========\n\n");
 
+    // Dine in or take out?
     printf("Dine In (1) or Take Out (2)? ");
     do
     {
@@ -28,9 +29,10 @@ int main()
         }
     } while (orderType != 1 || orderType != 2);
 
+    // Handle orders
     do
     {
-        // Menu
+        // Print menu
         printf("\n1. Original Hamburger\t\t P35.00\n");
         printf("2. Cheeseburger\t\t\t P40.00\n");
         printf("3. Pineapple Pizza (Small)\t P135.00\n");
@@ -61,37 +63,56 @@ int main()
         switch (order)
         {
             case 1:
-                // totalPrice = totalPrice + 35.00;
                 itemPrice = 35.00;
                 break;
             
             case 2:
-                // totalPrice = totalPrice + 40.00;
-                itemPrice = 35.00;
+                itemPrice = 40.00;
                 break;
 
             case 3:
-                totalPrice = totalPrice + 135.00;
+                itemPrice = 135.00;
                 break;
 
             case 4:
-                totalPrice = totalPrice + 195.00;
+                itemPrice = 195.00;
                 break;
 
             case 5:
-                totalPrice = totalPrice + 25.00;
+                itemPrice = 25.00;
                 break;
 
             case 6:
-                totalPrice = totalPrice + 95.00;
+                itemPrice = 95.00;
                 break;
             
             default:
                 break;
-        }
+        };
 
+        // Quantity of order
+        sleep(1.5);
+        printf("\nOrder Quantity: ");
+        do
+        {
+            if (scanf("%d", &quantity) != 1) 
+            {
+                printf("\nSorry! Invalid input. Please enter a valid number. ");
+                scanf("%*s");
+            }
+            else
+            {
+                break;
+            }
+        } while (quantity <= 0);
+        itemPrice = itemPrice * quantity;
+        totalPrice = totalPrice + itemPrice;
+
+        // Add to cart
         sleep(1.5);
         printf("\nYour order has been added to cart.\n");
+        sleep(.75);
+        printf("\nCurrent Total: P%f\n", totalPrice);
         sleep(1);
         printf("\nWould you like to Continue ordering (1) or Proceed to checkout (2)? ");
         do
@@ -112,8 +133,19 @@ int main()
         } while (orderStatus != 1 || orderStatus != 2);
     } while (orderStatus != 2);
     
-
-    printf("\n\nTOTAL: %f\n", totalPrice);
+    // Display order info
+    sleep(1);
+    printf("\n\n======================\n\n");
+    printf("TOTAL: %f\n", totalPrice);
+    if (orderType == 1)
+    {
+        printf("Order Type: DINE IN");
+    }
+    else
+    {
+        printf("Order Type: TAKE OUT");
+    }
+    printf("\n\n======================\n\n");
     
     return 0;
 }
