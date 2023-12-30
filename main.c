@@ -20,7 +20,6 @@ int main()
     do
     {
         printf("\nChoose the number for your order: ");
-
         if (scanf("%d", &order) != 1) 
         {
             printf("\nSorry! Invalid input. Please enter a valid number.\n");
@@ -36,39 +35,39 @@ int main()
         {
             orderValid = 1;
         }
-
     } while (orderValid == 0);
 
     switch (order)
     {
         case 1:
-            price = 35.00;
+            price = price + 35.00;
             break;
         
         case 2:
-            price = 40.00;
+            price = price + 40.00;
             break;
 
         case 3:
-            price = 135.00;
+            price = price + 135.00;
             break;
 
         case 4:
-            price = 195.00;
+            price = price + 195.00;
             break;
 
         case 5:
-            price = 25.00;
+            price = price + 25.00;
             break;
 
         case 6:
-            price = 95.00;
+            price = price + 95.00;
             break;
         
         default:
             break;
     }
-        
 
+    printf("%f", price);
+    
     return 0;
 }
