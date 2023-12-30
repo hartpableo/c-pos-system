@@ -3,11 +3,32 @@
 
 int main()
 {
-    int order, orderValid = 0;
+    int order, orderType, orderValid = 0;
     float price;
 
     system("clear");
     printf("\n========= MCDOLLIBEEKING MENU =========\n\n");
+
+    printf("Dine In (1) or Take Out (2)? ");
+    do
+    {
+        if (scanf("%d", &orderType) != 1) 
+        {
+            printf("\nSorry! Invalid input. Please enter a valid number (1 or 2). ");
+            scanf("%*s");
+        }
+        else if (orderType < 1 || orderType > 2)
+        {
+            printf("\nSorry! Invalid input. Please enter only 1 for Dine In or 2 for Take Out. ");
+        }
+        else
+        {
+            break;
+        }
+    } while (orderType != 1 || orderType != 2);
+
+    printf("%d\n\n", orderType);
+
 
     // Menu
     printf("1. Original Hamburger\t\t P35.00\n");
@@ -67,7 +88,8 @@ int main()
             break;
     }
 
-    printf("%f", price);
+
+    printf("%f\n", price);
     
     return 0;
 }
